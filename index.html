@@ -7,7 +7,7 @@
 
 <body>
 
- <iframe src="https://beta.vmixcall.com/" allow="camera *;microphone *" style="position:absolute;top:0;left:0;width:90%;height:95%;"></iframe> 
+ <iframe src="https://www.vmixcall.com/" allow="camera *;microphone *" style="position:absolute;top:0;left:0;width:90%;height:95%;"></iframe> 
 
 
 	<img id="next" src="https://raw.githubusercontent.com/bscav/Remote1/master/images/next.png" width="125" height="125" align="right">
@@ -71,8 +71,17 @@ preload(
 
 //-- tu trzeba zmienic przycisk next--//
 	$("#next").mousedown(function(){
-	$.get('https://bscav.ngrok.io/press/bank/1/2');});
+	$.fetch('https://bscav.ngrok.io/press/bank/1/2', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.text())
+.then(text => console.log(text));});
 	
+	
+		//
 
 
 $(document).ready(function()
