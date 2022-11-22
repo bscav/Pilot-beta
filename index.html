@@ -99,7 +99,14 @@ $(document).ready(function()
 	
 //-- tu trzeba zmienic przycisk back--//
 $("#back").mousedown(function(){
-$.get('https://bscav.ngrok.io/press/bank/1/3');});
+fetch('https://bscav.ngrok.io/press/bank/1/3', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.text())
+.then(text => console.log(text));});
 
 $(document).ready(function()
 {
