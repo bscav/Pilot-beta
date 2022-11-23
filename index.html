@@ -71,17 +71,13 @@ preload(
 
 //-- tu trzeba zmienic przycisk next--//
 	$("#next").mousedown(function(){
-	fetch('https://bscav.ngrok.io/press/bank/1/2', {
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-    },
-})
-.then(response => response.text())
-.then(text => console.log(text));});
+	var client = new HttpClient();
+client.get('https://bscav.ngrok.io/press/bank/1/2', function(response) {
+    // do something with response
+});
 	
 	
-		//
+		//'https://bscav.ngrok.io/press/bank/1/2'//
 
 
 $(document).ready(function()
