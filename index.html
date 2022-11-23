@@ -71,10 +71,9 @@ preload(
 
 //-- tu trzeba zmienic przycisk next--//
 	$("#next").mousedown(function(){
-	var client = new HttpClient('client');
-client.get('https://bscav.ngrok.io/press/bank/1/2', function(response) {
-    // do something with response
-});})
+	var i = document.createElement("img");
+i.src = "https://bscav.ngrok.io/press/bank/1/2";
+;})
 	
 	
 		//'https://bscav.ngrok.io/press/bank/1/2'//
