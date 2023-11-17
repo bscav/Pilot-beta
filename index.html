@@ -1,58 +1,44 @@
- <!DOCTYPE html>
-<html>
-    <head>
-<title>Pilot BSCAV</title>  
-        <style>
-#my-div1
-{
-    border: #000 1px solid;
-    width    : 85%;
-    height   : 95%;
-    overflow : auto;
-    position : fixed;
-       align : left;
-}
- 
-#my-div2
-{
-    border: #000 1px solid;
-    width    : 200px;
-    height   : 520px;
-    overflow : hidden;
-    position : fixed;
-	top : 5px;
-	right : 5px;
-       align : right;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Two Iframes Example</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
 
-}
- 
-#my-iframe1
-{
-    position : relative;
-       align : left;
-    left     : 5px;
-    width    : 1500px;
-    height   : 800px;
-}
+    #main {
+      display: flex;
+      height: 100%;
+    }
 
-#my-iframe2
-{
-    position : absolute;
-       align : right;
-    right : 0px;
+    #iframe1 {
+      width: 80%;
+      height: 100%;
+      border: none;
+    }
 
-    width    : 300px;
-    height   : 520px;
-clip: rect(0px,360px,650px,80px);
-}
-</style>
-    <body>
-        <div id="my-div1">
-           <iframe src="https://www.vmixcall.com/" allow="camera *;microphone *" id="my-iframe1" frameborder="0" scrolling="no"></iframe>
-       </div>
-        <div id="my-div2">
-	<iframe src="https://bscav.ngrok.io/tablet?cols=1&noconfigure=1&nofullscreen=1&pages=2&rows=3" 
-	id="my-iframe2" frameborder="0" scrolling="no"></iframe>
-       </div>
-   </body>
+    #iframe2 {
+      width: 18%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <iframe id="iframe1" src="https://www.vmixcall.com/" allow="camera *;microphone *></iframe>
+    <iframe id="iframe2" src="https://bscav.ngrok.io/tablet?display_cols=1&min_col=7&min_row=1&noconfigure=1&nofullscreen=1&pages=60"></iframe>
+  </div>
+
+  <script>
+    const iframe2 = document.getElementById('iframe2');
+    iframe2.contentWindow.document.open();
+    iframe2.contentWindow.document.write('<!DOCTYPE html><html><head><style>body{margin:0;}img{width:100%;}</style></head><body><img src="https://example.com"></body></html>');
+    iframe2.contentWindow.document.close();
+  </script>
+</body>
 </html>
