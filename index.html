@@ -31,13 +31,13 @@
 <body>
   <div id="main">
     <iframe id="iframe1" src="https://www.vmixcall.com/" allow="camera *;microphone *></iframe>
-    <iframe id="iframe2" src="https://bscav.ngrok.io/tablet?display_cols=1&min_col=7&min_row=1&noconfigure=1&nofullscreen=1&pages=60"></iframe>
+    <iframe id="iframe2" src="about:blank"></iframe>
   </div>
 
   <script>
     const iframe2 = document.getElementById('iframe2');
     iframe2.contentWindow.document.open();
-    iframe2.contentWindow.document.write('<!DOCTYPE html><html><head><style>body{margin:0;}img{width:100%;}</style></head><body><img src="https://example.com"></body></html>');
+    iframe2.contentWindow.document.write('<!DOCTYPE html><html><head><style>body{margin:0;}img{width:100%;}</style></head><body><img src="https://bscav.ngrok.io/tablet?display_cols=1&min_col=7&min_row=1&noconfigure=1&nofullscreen=1&pages=60"></body></html>');
     iframe2.contentWindow.document.close();
   </script>
 </body>
